@@ -36,6 +36,7 @@ export default function middleware(req: NextRequest) {
   let hasBucket = !!bucket
 
   console.log(req.cookies);
+  console.log(req.headers)
 
   console.log("bucket "+ bucket);
 
