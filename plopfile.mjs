@@ -17,8 +17,11 @@ export default function (plop) {
         name: 'exampleScopeFolder',
         message: 'Scope (Example folder): ',
         choices: [
-          { name: 'Solutions', value: 'solutions' },
+          { name: 'App directory', value: 'app-directory' },
           { name: 'Edge Functions', value: 'edge-functions' },
+          { name: 'Edge Middleware', value: 'edge-middleware' },
+          { name: 'Solutions', value: 'solutions' },
+          { name: 'Starter', value: 'starter' },
         ],
       },
       {
@@ -27,11 +30,19 @@ export default function (plop) {
         message: 'What options do you like?',
         choices: [
           {
-            name: 'Next.js API Routes - Serverless Functions: Hello world',
-            value: 'next-api-pages',
+            name: 'Basic example',
+            value: 'basic',
             checked: true,
           },
-          { name: 'Next.js Middleware Function', value: 'middleware' },
+          {
+            name: 'Next.js API Routes - Serverless Functions',
+            value: 'serverless-functions',
+          },
+          {
+            name: 'Next.js API Routes - Edge Functions',
+            value: 'edge-functions',
+          },
+          { name: 'Next.js Edge Middleware', value: 'edge-middleware' },
         ],
       },
     ],
@@ -43,7 +54,6 @@ export default function (plop) {
         'README.md',
         'tsconfig.json',
         '.eslintrc.json',
-        'next.config.js',
         '.gitignore',
         'next-env.d.ts',
         'package.json',
@@ -79,7 +89,7 @@ export default function (plop) {
         template: `${data.name}`,
       })
 
-      if (data.options.includes('next-api-pages')) {
+      if (data.options.includes('serverless-functions')) {
         actions.push({
           type: 'add',
           path: `{{exampleScopeFolder}}/${plopExampleName}/pages/api/hello.ts`,
@@ -87,7 +97,15 @@ export default function (plop) {
         })
       }
 
-      if (data.options.includes('middleware')) {
+      if (data.options.includes('edge-functions')) {
+        actions.push({
+          type: 'add',
+          path: `{{exampleScopeFolder}}/${plopExampleName}/pages/api/hello.ts`,
+          templateFile: `plop-templates/example/pages/api/hello-edge.ts`,
+        })
+      }
+
+      if (data.options.includes('edge-middleware')) {
         actions.push({
           type: 'add',
           path: `{{exampleScopeFolder}}/${plopExampleName}/middleware.ts`,

@@ -1,0 +1,204 @@
+[
+  {
+    "name": "name",
+    "type": "Text",
+    "required": true,
+    "validations": [
+      {
+        "size": {
+          "min": 0,
+          "max": 50
+        },
+        "message": "Too long!!"
+      }
+    ]
+  },
+  {
+    "name": "slug",
+    "type": "Text",
+    "required": true,
+    "validations": [
+      {
+        "unique": true
+      }
+    ]
+  },
+  {
+    "name": "publisher",
+    "type": "Text",
+    "required": true,
+    "validations": [
+      {
+        "size": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ]
+  },
+  {
+    "name": "description",
+    "type": "Text",
+    "required": true,
+    "validations": [
+      {
+        "size": {
+          "min": 0,
+          "max": 140
+        },
+        "message": "Too long!!"
+      }
+    ]
+  },
+  {
+    "name": "framework",
+    "type": "Array",
+    "required": true,
+    "validations": [
+      {
+        "size": {
+          "max": 2,
+          "min": 0
+        }
+      }
+    ],
+    "items": [
+      {
+        "in": [
+          "Next.js",
+          "Svelte",
+          "React",
+          "Python",
+          "Vue",
+          "Nuxt",
+          "Astro",
+          "Solid",
+          "Preact",
+          "Qwik",
+          "Gatsby",
+          "Angular",
+          "Hugo",
+          "Remix"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "type",
+    "type": "Array",
+    "required": true,
+    "validations": [
+      {
+        "size": {
+          "min": 1,
+          "max": 2
+        }
+      }
+    ],
+    "items": [
+      {
+        "in": [
+          "Starter",
+          "Ecommerce",
+          "Blog",
+          "AI",
+          "Edge Functions",
+          "Edge Middleware",
+          "Edge Config",
+          "Portfolio",
+          "SaaS",
+          "Multi-tenant Apps",
+          "Realtime Apps",
+          "Documentation",
+          "Virtual Event",
+          "Monorepos",
+          "Web3"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "css",
+    "type": "Array",
+    "required": true,
+    "validations": [
+      {
+        "size": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    ],
+    "items": [
+      {
+        "in": [
+          "Tailwind",
+          "Chakra",
+          "Radix UI",
+          "CSS Modules",
+          "CSS-in-JSX",
+          "Material UI",
+          "Styled Components",
+          "Pinceau"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "githubUrl",
+    "type": "Text",
+    "required": true,
+    "validations": [
+      {
+        "regexp": {
+          "pattern": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$",
+          "flags": null
+        }
+      }
+    ]
+  },
+  {
+    "name": "demoUrl",
+    "type": "Text",
+    "required": true,
+    "validations": [
+      {
+        "regexp": {
+          "pattern": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$",
+          "flags": null
+        }
+      }
+    ]
+  },
+  {
+    "name": "relatedTemplates",
+    "type": "Array",
+    "required": true,
+    "validations": [
+      {
+        "size": {
+          "min": 1,
+          "max": 4
+        }
+      }
+    ],
+    "items": [
+      {
+        "linkContentType": ["templates"]
+      }
+    ]
+  },
+  {
+    "name": "deployUrl",
+    "type": "Text",
+    "required": true,
+    "validations": [
+      {
+        "regexp": {
+          "pattern": "^https://vercel.com/new/clone",
+          "flags": null
+        }
+      }
+    ]
+  }
+]

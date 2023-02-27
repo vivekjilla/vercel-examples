@@ -9,6 +9,8 @@ useCase:
 css: Tailwind
 deployUrl: https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/edge-functions/cors&project-name=cors&repository-name=cors
 demoUrl: https://edge-functions-cors.vercel.app/api/hello
+relatedTemplates:
+  - cookies
 ---
 
 # CORS Example
@@ -20,7 +22,7 @@ import { NextRequest } from 'next/server'
 import cors from '../../lib/cors'
 
 export const config = {
-  runtime: 'experimental-edge',
+  runtime: 'edge',
 }
 
 export default async function handler(req: NextRequest) {
