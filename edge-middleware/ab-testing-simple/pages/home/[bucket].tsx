@@ -6,15 +6,11 @@ import { HOME_BUCKETS } from '@lib/buckets'
 export default function Home() {
   const router = useRouter()
   const setBucket = (bucket: string) => () => {
-    if (window?.location?.hostname){
-      Cookies.set('bucket-home', bucket, {domain: window.location.hostname})
-    } else{
-      Cookies.set('bucket-home', bucket)
-    }
+    Cookies.set('bucket-home', bucket, {domain: window.location.hostname})
     router.reload()
   }
   const removeBucket = () => {
-    Cookies.remove('bucket-home')
+    Cookies.remove('bucket-home', {domain: window.location.hostname})
     router.reload()
   }
   const bucket = router.query.bucket as string

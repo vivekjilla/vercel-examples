@@ -6,15 +6,11 @@ import { MARKETING_BUCKETS } from '@lib/buckets'
 export default function Marketing() {
   const router = useRouter()
   const setBucket = (bucket: string) => () => {
-    if (window?.location?.hostname){
-      Cookies.set('bucket-marketing', bucket, {domain: window.location.hostname})
-    } else{
-      Cookies.set('bucket-marketing', bucket)
-    }
+    Cookies.set('bucket-marketing', bucket, {domain: window.location.hostname})
     router.reload()
   }
   const removeBucket = () => {
-    Cookies.remove('bucket-marketing')
+    Cookies.remove('bucket-marketing', {domain: window.location.hostname})
     router.reload()
   }
 
