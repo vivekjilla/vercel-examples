@@ -35,16 +35,25 @@ export default function middleware(req: NextRequest) {
   let bucket = req.cookies.get(route.cookie)?.value
   let hasBucket = !!bucket
 
+  console.log(req.cookies);
+
+  console.log("bucket "+ bucket);
+
   // If there's no active bucket in cookies or its value is invalid, get a new one
   if (!bucket || !route.buckets.includes(bucket as any)) {
     bucket = getBucket(route.buckets)
     hasBucket = false
   }
 
+  console.log("bucket "+ bucket);
+  console.log("hasbucket "+ hasBucket);
+
   // Create a rewrite to the page matching the bucket
   const url = req.nextUrl.clone()
   url.pathname = `${route.page}/${bucket}`
   const res = NextResponse.rewrite(url)
+
+  console.log("url "+ url);
 
   // Add the bucket to the response cookies if it's not there
   // or if its value was invalid

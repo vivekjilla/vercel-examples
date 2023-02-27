@@ -14,6 +14,7 @@ export default function Home() {
     router.reload()
   }
   const bucket = router.query.bucket as string
+  console.log("bucket: " + bucket);
 
   return (
     <Page>
