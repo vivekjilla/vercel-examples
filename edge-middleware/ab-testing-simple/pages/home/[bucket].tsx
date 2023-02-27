@@ -46,14 +46,7 @@ export default function Home() {
 
 Home.Layout = Layout
 
-export async function getStaticPaths() {
-  return {
-    paths: HOME_BUCKETS.map((bucket) => ({ params: { bucket } })),
-    fallback: false,
-  }
-}
-
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Here you would return data about the bucket
   return { props: {} }
 }
